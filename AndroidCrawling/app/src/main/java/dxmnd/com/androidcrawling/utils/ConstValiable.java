@@ -11,5 +11,5 @@ public class ConstValiable {
 
     public static final int MEGABOX = 0;
     public static final int CGV = 1;
-    public static final int ROTTE = 2;
+    public static final int LOTTE = 2;
 }

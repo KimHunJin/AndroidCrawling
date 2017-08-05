@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -18,7 +17,7 @@ import dxmnd.com.androidcrawling.utils.ItemClick;
 import static dxmnd.com.androidcrawling.utils.ConstValiable.CGV;
 import static dxmnd.com.androidcrawling.utils.ConstValiable.MEGABOX;
 import static dxmnd.com.androidcrawling.utils.ConstValiable.MEGA_REGION_INFO;
-import static dxmnd.com.androidcrawling.utils.ConstValiable.ROTTE;
+import static dxmnd.com.androidcrawling.utils.ConstValiable.LOTTE;
 import static dxmnd.com.androidcrawling.utils.IntentKey.BRAND;
 import static dxmnd.com.androidcrawling.utils.IntentKey.REGION_CODE;
 import static dxmnd.com.androidcrawling.utils.URL.MEGABOX_SELECT_THEADER;
@@ -57,8 +56,8 @@ public class CrawlingActivity extends AppCompatActivity {
                 crawlingCGV();
                 break;
             }
-            case ROTTE: {
-                crawlingRotte();
+            case LOTTE: {
+                crawlingLotte();
                 break;
             }
         }
@@ -93,7 +92,7 @@ public class CrawlingActivity extends AppCompatActivity {
         }
     }
 
-    private void crawlingRotte() {
+    private void crawlingLotte() {
 
     }
 
@@ -111,7 +110,7 @@ public class CrawlingActivity extends AppCompatActivity {
                 case CGV: {
                     break;
                 }
-                case ROTTE: {
+                case LOTTE: {
                     break;
                 }
             }
