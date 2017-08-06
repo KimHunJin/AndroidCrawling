@@ -16,10 +16,16 @@ import dxmnd.com.androidcrawling.utils.ItemClick;
 
 import static dxmnd.com.androidcrawling.utils.ConstValiable.CGV;
 import static dxmnd.com.androidcrawling.utils.ConstValiable.MEGABOX;
+import static dxmnd.com.androidcrawling.utils.ConstValiable.LOTTE;
 import static dxmnd.com.androidcrawling.utils.ConstValiable.MEGA_REGION_INFO;
+import static dxmnd.com.androidcrawling.utils.ConstValiable.LOTTE_DIVISION_INFO;
 import static dxmnd.com.androidcrawling.utils.ConstValiable.LOTTE;
 import static dxmnd.com.androidcrawling.utils.IntentKey.BRAND;
+import static dxmnd.com.androidcrawling.utils.IntentKey.CINEMAID;
+import static dxmnd.com.androidcrawling.utils.IntentKey.DETAIL_DIVISION_CODE;
+import static dxmnd.com.androidcrawling.utils.IntentKey.DIVISION_CODE;
 import static dxmnd.com.androidcrawling.utils.IntentKey.REGION_CODE;
+import static dxmnd.com.androidcrawling.utils.URL.LOTTE_THEADER_URL;
 import static dxmnd.com.androidcrawling.utils.URL.MEGABOX_SELECT_THEADER;
 import static dxmnd.com.androidcrawling.utils.URL.MEGABOX_THEADER_URL;
 
@@ -50,6 +56,7 @@ public class CrawlingActivity extends AppCompatActivity {
         switch (id) {
             case MEGABOX: {
                 crawlingMegaBox();
+
                 break;
             }
             case CGV: {
@@ -58,6 +65,7 @@ public class CrawlingActivity extends AppCompatActivity {
             }
             case LOTTE: {
                 crawlingLotte();
+
                 break;
             }
         }
@@ -67,11 +75,10 @@ public class CrawlingActivity extends AppCompatActivity {
     private void initialize() {
         rcvCrawlingRegion = (RecyclerView) findViewById(R.id.rcv_crawling_list_region);
         rcvCrawlingRegion.setHasFixedSize(true);
-        rcvCrawlingRegion.setLayoutManager(new LinearLayoutManager(this));
         adapter = new RegionListRecyclerViewAdapter();
         adapter.setItemClick(click);
+        rcvCrawlingRegion.setLayoutManager(new LinearLayoutManager(this));
         rcvCrawlingRegion.setAdapter(adapter);
-
     }
 
     private void crawlingCGV() {
@@ -93,7 +100,17 @@ public class CrawlingActivity extends AppCompatActivity {
     }
 
     private void crawlingLotte() {
+        crawlingTheaderInfo = new CrawlingTheaderInfo(LOTTE_DIVISION_INFO, LOTTE_THEADER_URL, "");
 
+        try{
+            items = crawlingTheaderInfo.execute().get();
+
+            adapter.setItems(items);
+        } catch (ExecutionException e){
+            e.printStackTrace();
+        } catch(InterruptedException e){
+            e.printStackTrace();
+        }
     }
 
     private ItemClick click = new ItemClick() {
@@ -103,6 +120,7 @@ public class CrawlingActivity extends AppCompatActivity {
             switch (id) {
                 case MEGABOX: {
                     Intent it = new Intent(getApplicationContext(), CrawlingDetailInfoActivity.class);
+                    it.putExtra(BRAND, MEGABOX);
                     it.putExtra(REGION_CODE, items.get(position).getCode());
                     startActivity(it);
                     break;
@@ -111,6 +129,12 @@ public class CrawlingActivity extends AppCompatActivity {
                     break;
                 }
                 case LOTTE: {
+                    Intent it = new Intent(getApplicationContext(), CrawlingDetailInfoActivity.class);
+                    it.putExtra(BRAND, LOTTE);
+                    it.putExtra(DIVISION_CODE, items.get(position).getDivision());
+                    it.putExtra(DETAIL_DIVISION_CODE, items.get(position).getDetailDivision());
+                    it.putExtra(REGION_CODE, items.get(position).getCode());
+                    startActivity(it);
                     break;
                 }
             }
