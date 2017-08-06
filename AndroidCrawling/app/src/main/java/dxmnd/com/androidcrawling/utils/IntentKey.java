@@ -8,4 +8,8 @@ public class IntentKey {
 
     public static final String BRAND = "brand";
     public static final String REGION_CODE = "code";
+
+    public static final String DIVISION_CODE = "division";
+    public static final String DETAIL_DIVISION_CODE = "detaildivison";
+    public static final String CINEMAID = "cinemaid";
 }

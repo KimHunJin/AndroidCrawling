@@ -19,4 +19,8 @@ public class URL {
     public static final String CGV_TEHEADER_TIME_URL = "http://www.cgv.co.kr";  // 영화관 정보
 
     public static final String CGV_SELECT_TIME = ".showtimes-wrap .sect-showtimes ul li";  // 시간 정보
+
+    // LOTTE
+    public static final String LOTTE_THEADER_URL = "http://www.lottecinema.co.kr/LCWS/Cinema/CinemaData.aspx";
+    public static final String LOTTE_THEADER_MOVIE_INFO = "http://www.lottecinema.co.kr/LCWS/Ticketing/TicketingData.aspx";
 }

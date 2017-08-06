@@ -1,11 +1,10 @@
 # AndroidCrawling
-> ¿µÈ­µéÀÇ Á¤º¸¸¦ Å©·Ñ¸µÀ» ÅëÇØ °¡Á®¿À´Â ÇÁ·Î±×·¥ÀÔ´Ï´Ù.
-
+ > ì˜í™”ë“¤ì˜ ì •ë³´ë¥¼ í¬ë¡¤ë§ì„ í†µí•´ ê°€ì ¸ì˜¤ëŠ” í”„ë¡œê·¸ë¨ì…ë‹ˆë‹¤.
 
 ## To Do
 1. CGV Crawling
-2. LotteCinema Crawling
 
 
 ## Done
 1. Megabox Crawling
+2. LotteCinema Crawling
